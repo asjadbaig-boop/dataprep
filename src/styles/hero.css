@@ -1,0 +1,179 @@
+.hero {
+  min-height: 100vh;
+  background: var(--gradient-hero);
+  display: flex; align-items: center;
+  padding: 100px clamp(24px, 6vw, 80px) 80px;
+  position: relative; overflow: hidden;
+}
+
+/* Large faded background Azure logo */
+.hero-bg-logo {
+  position: absolute;
+  right: -60px; top: 50%;
+  transform: translateY(-50%);
+  width: 480px; height: 480px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+  animation: bgLogoSpin 40s linear infinite;
+}
+@keyframes bgLogoSpin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Small Azure icon in hero label pill */
+.hero-label-icon {
+  width: 14px; height: 14px;
+  flex-shrink: 0;
+}
+
+/* Azure logo card inside mockup */
+.azure-logo-card {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px; margin-bottom: 14px;
+  background: linear-gradient(135deg, #EFF6FC 0%, #F0F7FF 100%);
+  border: 1px solid rgba(0,120,212,0.14);
+  border-radius: 10px;
+}
+.azure-logo-svg {
+  width: 72px; height: 72px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 12px rgba(0,120,212,0.25));
+  animation: azureFloat 4s ease-in-out infinite;
+}
+.hero-mockup:hover .azure-logo-svg {
+  animation-play-state: paused;
+}
+@keyframes azureFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+.azure-logo-label {
+  display: flex; flex-direction: column; gap: 3px;
+}
+.azure-logo-label-top {
+  font-size: .65rem; font-weight: 800;
+  color: #0078D4; letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.azure-logo-label-sub {
+  font-size: .85rem; font-weight: 600;
+  color: #1A1A2E; line-height: 1.2;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(0,120,212,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,120,212,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 1280px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px); align-items: center;
+}
+.hero-label {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(0,120,212,0.08);
+  border: 1px solid rgba(0,120,212,0.2);
+  border-radius: 99px; padding: 6px 16px;
+  font-size: .75rem; font-weight: 700; letter-spacing: .12em;
+  color: var(--azure-blue); text-transform: uppercase; margin-bottom: 22px;
+  overflow: visible; line-height: 1.4;
+}
+.hero-label::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--azure-blue); border-radius: 50%;
+  animation: labelBlink 1.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes labelBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+.hero-h1 {
+  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  font-weight: 800; line-height: 1.1; letter-spacing: -.03em;
+  margin-bottom: 20px;
+  padding-bottom: 4px;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  overflow: visible;
+  white-space: normal;
+  word-break: keep-all;
+  hyphens: none;
+}
+.hero-sub {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: #605E5C; line-height: 1.75;
+  max-width: 520px; margin-bottom: 36px;
+  overflow: visible;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+
+.hero-visual { display: flex; justify-content: center; position: relative; }
+.mockup {
+  width: 100%; max-width: 420px;
+  background: #fff; border-radius: 18px;
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.04),
+    0 20px 60px rgba(0,120,212,0.2),
+    0 0 0 1px rgba(0,120,212,0.08);
+  overflow: hidden;
+  animation: heroFloat 9s ease-in-out infinite alternate;
+}
+@keyframes heroFloat {
+  from { transform: translateY(0) rotate(-0.3deg); }
+  to   { transform: translateY(-6px) rotate(0.3deg); }
+}
+.mockup-bar {
+  background: #f2f2f2; padding: 10px 14px;
+  display: flex; align-items: center; gap: 6px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.r { background: #FF5F57; }
+.dot.y { background: #FFBD2E; }
+.dot.g { background: #28C840; }
+.url-bar {
+  flex: 1; margin-left: 8px; background: #fff;
+  border: 1px solid #e0e0e0; border-radius: 4px;
+  padding: 3px 10px; font-size: .7rem; color: var(--text-muted);
+}
+.mockup-body { padding: 16px; }
+.mockup-label { font-size: .78rem; font-weight: 700; color: var(--accent-blue-deep); margin-bottom: 12px; }
+.mockup-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.m-card {
+  background: #f5f5f5; border-radius: 8px; padding: 10px 6px;
+  text-align: center; border: 1px solid #e8e8e8;
+  transition: transform .2s var(--ease-spring), box-shadow .2s;
+}
+.m-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,.1); }
+.m-av { width: 30px; height: 30px; border-radius: 6px; margin: 0 auto 5px; display: flex; align-items: center; justify-content: center; font-size: .62rem; font-weight: 700; color: #fff; }
+.m-name { font-size: .58rem; font-weight: 600; color: #333; }
+.m-badge { font-size: .48rem; background: #EFF6FC; color: #0078D4; border-radius: 99px; padding: 1px 5px; margin-top: 3px; display: inline-block; }
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 90px;
+    padding-bottom: 60px;
+    padding-left: clamp(20px, 5vw, 40px);
+    padding-right: clamp(20px, 5vw, 40px);
+  }
+  .hero-inner { grid-template-columns: 1fr; gap: 0; text-align: center; }
+  .hero-sub   { margin: 0 auto 36px; }
+  .hero-btns  { justify-content: center; }
+  .hero-visual { display: none; }
+  .hero-h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+  .hero-sub { font-size: 1rem; }
+  .hero-bg-logo { display: none; }
+  .azure-logo-svg { width: 52px; height: 52px; }
+}
+
+@media (max-width: 480px) {
+  .hero-btns { flex-direction: column; align-items: center; }
+}
