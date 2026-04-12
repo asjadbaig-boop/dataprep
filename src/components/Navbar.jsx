@@ -6,6 +6,7 @@ import { smoothScrollTo } from "../utils/smoothScroll"
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState("")
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
@@ -28,6 +29,23 @@ const Navbar = () => {
     return () => document.removeEventListener("keydown", handleKey)
   }, [isOpen])
 
+  useEffect(() => {
+    const sectionIds = ["mission", "companies", "tech", "how"]
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id)
+        })
+      },
+      { threshold: 0.4 }
+    )
+    sectionIds.forEach(id => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
+
   const navLinks = [
     { label: "About",        id: "mission" },
     { label: "Companies",    id: "companies" },
@@ -44,20 +62,21 @@ const Navbar = () => {
     <div className="navbar-wrapper">
       <motion.div
         className={`navbar-pill ${scrolled ? "scrolled" : ""}`}
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        initial={{ y: -100, opacity: 0, scale: 0.9 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{
           type: "spring",
-          damping: 20,
-          stiffness: 200,
-          delay: 0.1
+          damping: 18,
+          stiffness: 180,
+          delay: 0.15
         }}
       >
         {/* LOGO */}
         <motion.div
           className="navbar-logo"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 400 }}
+          whileHover={{ scale: 1.08, rotate: -4 }}
+          whileTap={{ scale: 0.94 }}
+          transition={{ type: "spring", stiffness: 500, damping: 15 }}
         >
           <div className="navbar-logo-icon">
             <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
@@ -89,13 +108,13 @@ const Navbar = () => {
           {navLinks.map((link, i) => (
             <motion.button
               key={link.label}
-              className="navbar-link"
+              className={`navbar-link ${activeSection === link.id ? "navbar-link-active" : ""}`}
               onClick={() => handleNavClick(link.id)}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.08 + 0.2 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ y: 0, scale: 0.95 }}
             >
               {link.label}
             </motion.button>
@@ -111,8 +130,8 @@ const Navbar = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, type: "spring", stiffness: 200 }}
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.96 }}
+          whileHover={{ scale: 1.07, y: -1 }}
+          whileTap={{ scale: 0.95, y: 0 }}
         >
           Say hello →
         </motion.a>
@@ -121,7 +140,9 @@ const Navbar = () => {
         <motion.button
           className="hamburger-btn"
           onClick={toggleMenu}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.85, rotate: 10 }}
+          transition={{ type: "spring", stiffness: 500, damping: 15 }}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
@@ -137,23 +158,25 @@ const Navbar = () => {
         {isOpen && (
           <motion.div
             className="mobile-menu-overlay"
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
+            initial={{ opacity: 0, x: "100%", scale: 0.96 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: "100%", scale: 0.96 }}
             transition={{
               type: "spring",
-              damping: 28,
-              stiffness: 280
+              damping: 26,
+              stiffness: 260,
+              mass: 0.8
             }}
           >
             {/* Close button */}
             <motion.button
               className="mobile-menu-close"
               onClick={toggleMenu}
-              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.12, rotate: 90 }}
+              whileTap={{ scale: 0.88 }}
+              transition={{ type: "spring", stiffness: 500, damping: 15 }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.15 }}
             >
               <X size={24} color="#1A1A2E" />
             </motion.button>
@@ -185,7 +208,8 @@ const Navbar = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 30 }}
                   transition={{ delay: i * 0.08 + 0.15 }}
-                  whileTap={{ scale: 0.97 }}
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.97, x: 2 }}
                 >
                   {link.label}
                   <span className="mobile-link-arrow">→</span>
@@ -196,14 +220,15 @@ const Navbar = () => {
             {/* Mobile CTA */}
             <motion.a
               href="https://www.linkedin.com/in/asjad-baig/"
-          target="_blank"
-          rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mobile-menu-cta"
               onClick={toggleMenu}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ delay: 0.42 }}
+              whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
             >
               Say hello →
