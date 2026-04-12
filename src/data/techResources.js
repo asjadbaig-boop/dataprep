@@ -1,3 +1,5 @@
+import { driveLinks } from './driveLinks';
+
 export const TECH_DATA = [
   { icon: '🗄️', title: 'SQL',                     accent: '#0078D4', desc: 'Joins, window functions, CTEs, indexing — the foundation of every data interview.' },
   { icon: '🐍', title: 'Python',                  accent: '#3776AB', desc: 'Data manipulation, pandas, list comprehensions, OOP — Python for data roles.' },
@@ -11,49 +13,55 @@ export const techResources = {
   SQL: {
     icon: '🗄️',
     accentColor: '#0078D4',
+    driveLink: driveLinks.sql,
     description: 'Window functions, CTEs, joins, indexing and query optimisation questions.',
     pdfs: [
-      { name: 'SQL Interview Questions - Complete Guide', path: './pdfs/sql/sql-interview-questions.pdf' }
+      { name: 'SQL Interview Questions - Complete Guide' }
     ]
   },
   Python: {
     icon: '🐍',
     accentColor: '#3776AB',
+    driveLink: driveLinks.python,
     description: 'Pandas, list comprehensions, OOP, data manipulation and problem solving.',
     pdfs: [
-      { name: 'Python Interview Questions - Data Engineering', path: './pdfs/python/python-interview-questions.pdf' }
+      { name: 'Python Interview Questions - Data Engineering' }
     ]
   },
   PySpark: {
     icon: '⚡',
     accentColor: '#E25A1C',
+    driveLink: driveLinks.pyspark,
     description: 'RDDs, DataFrames, transformations, Spark optimisation and partitioning.',
     pdfs: [
-      { name: 'PySpark Interview Questions - Complete Guide', path: './pdfs/pyspark/pyspark-interview-questions.pdf' }
+      { name: 'PySpark Interview Questions - Complete Guide' }
     ]
   },
   'Azure Data Factory': {
     icon: '🔧',
     accentColor: '#0078D4',
+    driveLink: driveLinks.adf,
     description: 'Pipelines, triggers, linked services, data flows and ADF architecture.',
     pdfs: [
-      { name: 'ADF Interview Questions - End to End', path: './pdfs/adf/adf-interview-questions.pdf' }
+      { name: 'ADF Interview Questions - End to End' }
     ]
   },
   'Azure Databricks': {
     icon: '🧱',
     accentColor: '#FF3621',
+    driveLink: driveLinks.databricks,
     description: 'Clusters, notebooks, Delta Lake, Unity Catalog and lakehouse patterns.',
     pdfs: [
-      { name: 'Databricks Interview Questions - Full Guide', path: './pdfs/databricks/databricks-interview-questions.pdf' }
+      { name: 'Databricks Interview Questions - Full Guide' }
     ]
   },
   'Azure Synapse': {
     icon: '🌐',
     accentColor: '#7B2D8B',
+    driveLink: driveLinks.synapse,
     description: 'Dedicated pools, serverless SQL, integration pipelines and Synapse architecture.',
     pdfs: [
-      { name: 'Synapse Analytics Interview Questions', path: './pdfs/synapse/synapse-interview-questions.pdf' }
+      { name: 'Synapse Analytics Interview Questions' }
     ]
   }
 };

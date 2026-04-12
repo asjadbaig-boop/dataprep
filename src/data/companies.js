@@ -1,11 +1,12 @@
+import { driveLinks } from './driveLinks';
+
 export const CAT_DATA = {
   service: {
     icon: '🏢',
     title: 'Service Based Companies',
     count: 47,
-    dlPath: './downloads/service-based-companies.zip',
-    dlAttr: 'Service_Based_Interview_Questions.zip',
-    dlText: '⬇\u2002Download All Service Based PDFs',
+    driveLink: driveLinks.serviceBased,
+    dlText: '↗\u2002View Service Based PDFs',
     previewRow1: 'Cognizant · TCS · Infosys · Wipro · HCL · Tech Mahindra · Coforge · Hexaware',
     previewRow2: 'Mphasis · LTI Mindtree · Persistent Systems · Nagarro · EPAM · Globant · Deloitte · EY',
     companies: [
@@ -28,9 +29,8 @@ export const CAT_DATA = {
     icon: '🚀',
     title: 'Product Based Companies',
     count: 35,
-    dlPath: './downloads/product-based-companies.zip',
-    dlAttr: 'Product_Based_Interview_Questions.zip',
-    dlText: '⬇\u2002Download All Product Based PDFs',
+    driveLink: driveLinks.productBased,
+    dlText: '↗\u2002View Product Based PDFs',
     previewRow1: 'Google · Microsoft · Amazon · Netflix · Uber · Walmart · Goldman Sachs · JP Morgan',
     previewRow2: 'Mastercard · Morgan Stanley · Paypal · S&P Global · NASDAQ · Snowflake · Meesho · Myntra',
     companies: [

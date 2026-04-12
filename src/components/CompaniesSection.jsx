@@ -63,7 +63,7 @@ function CatBlock({ type, data, onOpen }) {
       </div>
       <div>
         <button className="cat-dl-btn" onClick={() => onOpen(type)}>
-          <span className="cat-dl-arrow">⬇</span>&ensp;Download {type === 'service' ? 'Service' : 'Product'} Pack
+          <span className="cat-dl-arrow">⬇</span>&ensp;Download PDFs
         </button>
         <div className="cat-reassure">
           <span>✅ Free</span>

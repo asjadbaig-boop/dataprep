@@ -84,10 +84,12 @@ export default function CompanyModal({ type, onClose }) {
         <div className="modal-footer">
           <a
             className="modal-dl-btn"
-            href={data.dlPath}
-            download={data.dlAttr}
+            href={data.driveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open in Google Drive"
           >
-            {data.dlText}
+            ⬇ Download PDFs
           </a>
           <div className="modal-reassure">
             <span>✅ Free</span>

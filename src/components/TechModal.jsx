@@ -50,7 +50,13 @@ export default function TechModal({ techKey, onClose }) {
           <div key={pdf.name} className="tpdf-row">
             <span className="tpdf-icon">📄</span>
             <span className="tpdf-name">{pdf.name}</span>
-            <a className="tpdf-dl" href={pdf.path} download>Download ↓</a>
+            <a
+              className="tpdf-dl"
+              href={res.driveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open in Google Drive"
+            >⬇ Download PDF</a>
           </div>
         ))}
         <div className="tmod-note">Free to download · No sign-up required · Share with fellow job seekers 🚀</div>

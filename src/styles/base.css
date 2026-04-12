@@ -1,4 +1,95 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after {
+  box-sizing: border-box; margin: 0; padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Remove tap highlight on all interactive elements */
+button,
+a,
+.tech-card,
+.company-card,
+.alpha-btn,
+.modal-close,
+.hamburger,
+.pdf-row,
+.pdf-download-btn,
+[role="button"],
+[class*="card"],
+[class*="btn"] {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  outline: none;
+}
+
+/* Remove focus outline on touch devices */
+@media (hover: none) {
+  *:focus { outline: none; -webkit-tap-highlight-color: transparent; }
+  button:focus, a:focus { outline: none; }
+}
+
+/* Tech section specific */
+.tech-card,
+.tech-card *,
+[class*="tech"] {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* Prevent selection on interactive elements */
+button,
+a,
+.tech-card,
+.company-card,
+.alpha-btn,
+.stat-item,
+.pdf-row,
+.pdf-download-btn,
+.modal-close,
+.hamburger,
+.hamburger span,
+.navbar-cta,
+.btn-primary,
+.btn-outline,
+.free-badge,
+.back-to-top,
+[role="button"],
+[class*="card"],
+[class*="btn"],
+[class*="badge"] {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Allow selection on readable content */
+p,
+h1, h2, h3, h4, h5, h6,
+li,
+.sec-sub,
+.tech-desc,
+.tmod-desc,
+.tquote {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Press feedback for mobile taps */
+.tech-card:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.cat-block:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+.pdf-download-btn:active,
+.btn-primary:active,
+.navbar-cta:active {
+  transform: scale(0.96) translateY(1px);
+  transition: transform 0.1s ease;
+}
 
 html {
   scroll-behavior: smooth;
