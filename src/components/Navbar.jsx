@@ -104,7 +104,9 @@ const Navbar = () => {
 
         {/* DESKTOP CTA */}
         <motion.a
-          href="mailto:asjadbaigqaz@gmail.com"
+          href="https://www.linkedin.com/in/asjad-baig/"
+          target="_blank"
+          rel="noopener noreferrer"
           className="navbar-cta-btn"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -193,7 +195,9 @@ const Navbar = () => {
 
             {/* Mobile CTA */}
             <motion.a
-              href="mailto:asjadbaigqaz@gmail.com"
+              href="https://www.linkedin.com/in/asjad-baig/"
+          target="_blank"
+          rel="noopener noreferrer"
               className="mobile-menu-cta"
               onClick={toggleMenu}
               initial={{ opacity: 0, y: 20 }}
