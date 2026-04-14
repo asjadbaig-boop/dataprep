@@ -18,7 +18,7 @@ export const resumeCategories = [
       "Entry level skill showcase",
       "ATS optimised format"
     ],
-    driveLink: "https://drive.google.com/drive/folders/PASTE_JUNIOR_LINK_HERE"
+    driveLink: "https://drive.google.com/drive/folders/1jQqRtfdy4-uawtaiHzslvpeejiTcIPWQ?usp=sharing"
   },
   {
     id: "mid",
@@ -39,7 +39,7 @@ export const resumeCategories = [
       "Quantified impact metrics",
       "Leadership & mentoring highlighted"
     ],
-    driveLink: "https://drive.google.com/drive/folders/PASTE_MID_LINK_HERE"
+    driveLink: "https://drive.google.com/drive/folders/1bZyRYHDsGtq2giqLx8FBA2RWuBYt85ZD?usp=sharing"
   },
   {
     id: "senior",
@@ -60,6 +60,6 @@ export const resumeCategories = [
       "Cost optimisation achievements",
       "Strategic roadmap ownership"
     ],
-    driveLink: "https://drive.google.com/drive/folders/PASTE_SENIOR_LINK_HERE"
+    driveLink: "https://drive.google.com/drive/folders/1Eb7EhPoJHT_CgDehf-Z-UPl84h8ef-2h?usp=sharing"
   }
 ];
