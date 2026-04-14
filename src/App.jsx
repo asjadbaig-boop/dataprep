@@ -8,6 +8,7 @@ import CompaniesSection from './components/CompaniesSection';
 import CompanyModal from './components/CompanyModal';
 import TechSection from './components/TechSection';
 import TechModal from './components/TechModal';
+import ResumeSection from './components/ResumeSection';
 import HowItWorks from './components/HowItWorks';
 import Marquee from './components/Marquee';
 import Testimonials from './components/Testimonials';
@@ -57,6 +58,7 @@ export default function App() {
       <StatsStrip />
       <CompaniesSection onOpenModal={setCompanyModalType} />
       <TechSection onOpenModal={setTechModalKey} />
+      <ResumeSection />
       <HowItWorks />
       <Marquee />
       <Testimonials />

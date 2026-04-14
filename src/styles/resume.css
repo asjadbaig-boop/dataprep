@@ -1,0 +1,394 @@
+/* ── SECTION ─────────────────────────── */
+.resume-section {
+  padding: clamp(60px, 8vw, 110px) clamp(16px, 5vw, 60px);
+  background: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid background */
+.resume-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,120,212,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,120,212,0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+/* ── SECTION HEADER ──────────────────── */
+.resume-section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto clamp(40px, 6vw, 60px) auto;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-heading {
+  margin-bottom: 14px;
+}
+
+.resume-subtext {
+  margin: 0 auto;
+}
+
+/* ── GRID ─────────────────────────────  */
+.resume-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 24px);
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 960px) {
+  .resume-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 600px) {
+  .resume-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+  }
+}
+
+/* ── CARD ─────────────────────────────  */
+.resume-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1.5px solid #E8E8E8;
+  border-top: 4px solid var(--accent, #0078D4);
+  padding: clamp(22px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  will-change: transform;
+}
+
+.resume-card:hover {
+  box-shadow: 0 20px 52px
+    rgba(var(--accent-rgb, 0,120,212), 0.15);
+  border-color: var(--accent, #0078D4);
+  border-top-color: var(--accent, #0078D4);
+}
+
+/* ── CARD ORB ────────────────────────── */
+.resume-card-orb {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle,
+    rgba(var(--accent-rgb, 0,120,212), 0.06),
+    transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.3s ease;
+}
+
+.resume-card:hover .resume-card-orb {
+  opacity: 1.5;
+}
+
+/* All card content above orb */
+.resume-card > *:not(.resume-card-orb) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── TOP ROW ─────────────────────────── */
+.resume-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.resume-card-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  display: block;
+}
+
+.resume-card-badge {
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 4px 11px;
+  border: 1px solid currentColor;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+/* ── LEVEL PILL ──────────────────────── */
+.resume-level-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #F7F9FC;
+  border: 1px solid #E8E8E8;
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent, #0078D4);
+  width: fit-content;
+}
+
+.resume-level-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent, #0078D4);
+  flex-shrink: 0;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(0.75); }
+}
+
+/* ── TITLE + SUBTITLE ────────────────── */
+.resume-card-title {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 800;
+  color: #1A1A2E;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.resume-card-subtitle {
+  font-size: 0.84rem;
+  color: #8A8A8A;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── STATS ───────────────────────────── */
+.resume-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 0;
+  border-top: 1px solid #F0F0F0;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.resume-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.resume-stat-number {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--accent, #0078D4);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.resume-stat-label {
+  font-size: 0.72rem;
+  color: #A0A8B4;
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.resume-stat-divider {
+  width: 1px;
+  height: 30px;
+  background: #E8E8E8;
+  flex-shrink: 0;
+}
+
+/* ── FEATURES ────────────────────────── */
+.resume-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.resume-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.82rem;
+  color: #4A4A5A;
+  line-height: 1.4;
+}
+
+.resume-feature-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent, #0078D4);
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ── DIVIDER ─────────────────────────── */
+.resume-card-divider {
+  height: 1px;
+  background: #F0F0F0;
+  margin: 2px 0;
+}
+
+/* ── DOWNLOAD BUTTON ─────────────────── */
+.resume-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--accent, #0078D4);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px
+    rgba(var(--accent-rgb, 0,120,212), 0.3);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition:
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+  will-change: transform;
+}
+
+/* Shimmer sweep */
+.resume-btn-shimmer {
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255,255,255,0.22),
+    transparent);
+  transition: left 0.45s ease;
+  pointer-events: none;
+}
+
+.resume-download-btn:hover .resume-btn-shimmer {
+  left: 100%;
+}
+
+.resume-download-btn:hover {
+  box-shadow: 0 10px 32px
+    rgba(var(--accent-rgb, 0,120,212), 0.42);
+}
+
+.resume-btn-arrow {
+  display: inline-block;
+  transition: transform 0.25s
+    cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.resume-download-btn:hover .resume-btn-arrow {
+  transform: translateY(3px);
+}
+
+/* ── ASSURANCE ROW ───────────────────── */
+.resume-assurance-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.resume-assurance-row span {
+  font-size: 0.7rem;
+  color: #A0A8B4;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  user-select: none;
+}
+
+/* ── BOTTOM NOTE ─────────────────────── */
+.resume-bottom-note {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #A0A8B4;
+  margin-top: clamp(28px, 4vw, 44px);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── MOBILE ──────────────────────────── */
+@media (max-width: 600px) {
+  .resume-card {
+    border-radius: 16px;
+    padding: 22px 18px;
+    gap: 12px;
+  }
+
+  .resume-card-title {
+    font-size: 1rem;
+  }
+
+  .resume-stat-number {
+    font-size: 1.5rem;
+  }
+
+  .resume-download-btn {
+    padding: 13px 16px;
+    font-size: 0.88rem;
+  }
+
+  .resume-assurance-row {
+    gap: 10px;
+  }
+
+  .resume-assurance-row span {
+    font-size: 0.65rem;
+  }
+}
+
+/* Touch devices — remove hover, keep active */
+@media (hover: none) {
+  .resume-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .resume-download-btn:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+  }
+
+  .resume-card:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}

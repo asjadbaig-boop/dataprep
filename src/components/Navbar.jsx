@@ -30,7 +30,7 @@ const Navbar = () => {
   }, [isOpen])
 
   useEffect(() => {
-    const sectionIds = ["mission", "companies", "tech", "how"]
+    const sectionIds = ["mission", "companies", "tech", "resumes", "how"]
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
@@ -50,6 +50,7 @@ const Navbar = () => {
     { label: "About",        id: "mission" },
     { label: "Companies",    id: "companies" },
     { label: "Technology",   id: "tech" },
+    { label: "Resumes",      id: "resumes" },
     { label: "How It Works", id: "how" },
   ]
 
