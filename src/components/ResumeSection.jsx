@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "motion/react"
 import { resumeCategories } from "../data/resumes"
 import "../styles/resume.css"
 
