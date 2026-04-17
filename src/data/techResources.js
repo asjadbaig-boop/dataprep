@@ -5,6 +5,7 @@ export const TECH_DATA = [
   { icon: '🐍', title: 'Python',                  accent: '#3776AB', desc: 'Data manipulation, pandas, list comprehensions, OOP — Python for data roles.' },
   { icon: '⚡', title: 'PySpark',                 accent: '#E25A1C', desc: 'Distributed processing, RDDs, DataFrames, Spark optimisation — big data ready.' },
   { icon: '🔧', title: 'Azure Data Factory',      accent: '#0078D4', desc: 'Pipelines, triggers, linked services, data flows — ADF end to end.' },
+  { icon: '🎯', title: 'ADF Scenario Based',      accent: '#0F7B6C', desc: 'Real-world ADF scenarios, troubleshooting questions and pipeline design challenges asked in senior interviews.' },
   { icon: '🧱', title: 'Azure Databricks',        accent: '#FF3621', desc: 'Clusters, notebooks, Delta Lake, Unity Catalog — modern lakehouse architecture.' },
   { icon: '🌐', title: 'Azure Synapse Analytics', accent: '#7B2D8B', desc: 'Dedicated pools, serverless SQL, integration pipelines — the full analytics platform.' }
 ];
@@ -44,6 +45,15 @@ export const techResources = {
     description: 'Pipelines, triggers, linked services, data flows and ADF architecture.',
     pdfs: [
       { name: 'ADF Interview Questions - End to End' }
+    ]
+  },
+  'ADF Scenario Based': {
+    icon: '🎯',
+    accentColor: '#0F7B6C',
+    driveLink: driveLinks['adf-scenario'],
+    description: 'Real-world ADF scenarios, troubleshooting questions and pipeline design challenges asked in senior interviews.',
+    pdfs: [
+      { name: 'ADF Scenario Based Interview Questions' }
     ]
   },
   'Azure Databricks': {
