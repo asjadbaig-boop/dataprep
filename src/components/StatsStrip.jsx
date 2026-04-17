@@ -12,6 +12,9 @@ export default function StatsStrip() {
 
   return (
     <section className="stats-strip" ref={ref}>
+      <div className="stats-parallax-bg" aria-hidden="true">
+        <div className="stats-stripe" />
+      </div>
       <div className="stats-inner">
         {STATS.map(s => (
           <div key={s.label} className="stat-box">

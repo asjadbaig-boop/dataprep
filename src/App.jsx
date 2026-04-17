@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import Cursor from './components/Cursor';
+import { ScrollProgressBar } from './components/ParallaxEffects';
+import './styles/parallax.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Mission from './components/Mission';
@@ -51,6 +53,7 @@ export default function App() {
 
   return (
     <>
+      <ScrollProgressBar />
       <Cursor />
       <Navbar />
       <Hero />

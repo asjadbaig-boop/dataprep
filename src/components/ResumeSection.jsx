@@ -2,10 +2,12 @@ import { useState, useRef, useEffect } from "react"
 import { motion } from "motion/react"
 import { resumeCategories } from "../data/resumes"
 import "../styles/resume.css"
+import { useTilt } from "../hooks/useTilt"
 
 const ResumeCard = ({ category, index }) => {
   const [hovered, setHovered] = useState(false)
   const cardRef = useRef(null)
+  const tiltRef = useTilt(5)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -23,6 +25,7 @@ const ResumeCard = ({ category, index }) => {
   }, [])
 
   return (
+    <div ref={tiltRef} className="tilt-card">
     <motion.div
       ref={cardRef}
       className={`resume-card ${visible ? "visible" : ""}`}
@@ -153,12 +156,14 @@ const ResumeCard = ({ category, index }) => {
         <span>🔓 No sign-up</span>
       </div>
     </motion.div>
+    </div>
   )
 }
 
 const ResumeSection = () => {
   return (
     <section className="resume-section" id="resumes">
+      <div className="parallax-grid parallax-grid-slow" aria-hidden="true" />
       {/* Section header */}
       <div className="resume-section-header">
         <motion.div

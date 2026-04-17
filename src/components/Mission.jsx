@@ -1,10 +1,12 @@
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { ParallaxOrbs } from './ParallaxEffects';
 
 export default function Mission() {
   const ref = useScrollReveal();
 
   return (
     <section className="mission" id="mission">
+      <ParallaxOrbs section="mission" />
       <div className="mission-inner reveal" ref={ref}>
         <h2 className="mission-h2">No more LinkedIn hopping.<br/>No more YouTube rabbit holes.</h2>
         <p className="mission-p">

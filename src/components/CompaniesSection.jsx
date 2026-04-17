@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { CAT_DATA } from '../data/companies';
+import { ParallaxParticles } from './ParallaxEffects';
+import { useTilt } from '../hooks/useTilt';
 
 function catCountUp(el, target) {
   let val = 0;
@@ -14,6 +16,7 @@ function catCountUp(el, target) {
 
 function CatBlock({ type, data, onOpen }) {
   const blockRef = useRef(null);
+  const tiltRef = useTilt(6);
   const direction = type === 'service' ? 'from-left' : 'from-right';
 
   useEffect(() => {
@@ -35,6 +38,7 @@ function CatBlock({ type, data, onOpen }) {
 
   return (
     <div className={`cat-block ${type} ${direction}`} ref={blockRef}>
+      <div className="tilt-card" ref={tiltRef}>
       <div className="cat-top-row">
         <span className="cat-icon">{data.icon}</span>
         <span className={`cat-pill ${type}`}>{type === 'service' ? 'Service Based' : 'Product Based'}</span>
@@ -71,6 +75,7 @@ function CatBlock({ type, data, onOpen }) {
           <span>🔓 No sign-up</span>
         </div>
       </div>
+      </div>
     </div>
   );
 }
@@ -80,6 +85,7 @@ export default function CompaniesSection({ onOpenModal }) {
 
   return (
     <section className="companies-section" id="companies">
+      <ParallaxParticles />
       <div className="companies-inner">
         <div className="companies-hdr reveal" ref={hdrRef}>
           <p className="sec-label">Interview Question Bank</p>

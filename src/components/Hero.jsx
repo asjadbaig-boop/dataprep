@@ -1,4 +1,6 @@
+import { motion } from 'motion/react';
 import { smoothScrollTo } from '../utils/smoothScroll';
+import { ParallaxOrbs } from './ParallaxEffects';
 
 const MOCK_COMPANIES = [
   { initials: 'MS', name: 'Microsoft', bg: '#0078D4' },
@@ -31,16 +33,26 @@ const AzureLogo = ({ className }) => (
   </svg>
 );
 
+const HERO_HEADING = 'Crack Your Data Engineering Interview.'
+
 export default function Hero() {
   const handleClick = (e, id) => {
     e.preventDefault();
     smoothScrollTo(id);
   };
 
+  const words = HERO_HEADING.split(' ')
+
   return (
     <section className="hero" id="hero">
       {/* Large faded background logo */}
       <AzureLogo className="hero-bg-logo" />
+
+      {/* Parallax background layer */}
+      <div className="hero-parallax-bg">
+        <ParallaxOrbs section="hero" />
+        <div className="hero-watermark" aria-hidden="true">A</div>
+      </div>
 
       <div className="hero-inner">
         <div className="hero-text">
@@ -48,7 +60,24 @@ export default function Hero() {
             <AzureLogo className="hero-label-icon" />
             Azure Data Engineering
           </p>
-          <h1 className="hero-h1">Crack Your Data Engineering Interview.</h1>
+          <h1 className="hero-h1">
+            {words.map((word, i) => (
+              <motion.span
+                key={i}
+                className="hero-word"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: i * 0.08 + 0.3,
+                  duration: 0.5,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                style={{ display: 'inline-block', marginRight: '0.25em' }}
+              >
+                {word}
+              </motion.span>
+            ))}
+          </h1>
           <p className="hero-sub">Real interview questions from 80+ top companies. Organised, searchable and completely free. Built for Azure Data Engineers.</p>
           <div className="hero-btns">
             <a href="#companies" className="btn-primary" onClick={e => handleClick(e, 'companies')}>Browse Companies →</a>
