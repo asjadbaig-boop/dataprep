@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { CAT_DATA } from '../data/companies';
 import { ParallaxParticles } from './ParallaxEffects';
 import { useTilt } from '../hooks/useTilt';
+import CompanyModal from './CompanyModal';
 
 function catCountUp(el, target) {
   let val = 0;
@@ -38,35 +39,58 @@ function CatBlock({ type, data, onOpen }) {
 
   return (
     <div className={`cat-block ${type} ${direction}`} ref={blockRef}>
-      <div className="tilt-card" ref={tiltRef}>
-      <div className="cat-top-row">
-        <span className="cat-icon">{data.icon}</span>
-        <span className={`cat-pill ${type}`}>{type === 'service' ? 'Service Based' : 'Product Based'}</span>
-      </div>
-      <div>
-        <h3 className="cat-title">{data.title}</h3>
-        <p className="cat-sub">{type === 'service' ? 'Consulting, IT services & outsourcing giants' : 'Tech-first companies building their own products'}</p>
-      </div>
-      <div className="cat-stats">
-        <div className="cat-stat">
-          <span className="cat-stat-num" data-target={data.count}>0</span>
-          <span className="cat-stat-lbl">Companies</span>
+      {/* tilt-card wraps decorative content only — button is outside */}
+      <div className="tilt-card" ref={tiltRef} style={{ width: '100%' }}>
+        <div className="cat-top-row">
+          <span className="cat-icon">{data.icon}</span>
+          <span className={`cat-pill ${type}`}>{type === 'service' ? 'Service Based' : 'Product Based'}</span>
         </div>
-        <div className="cat-stat-div"/>
-        <div className="cat-stat">
-          <span className="cat-stat-num" data-target={data.count}>0</span>
-          <span className="cat-stat-lbl">PDFs</span>
+        <div>
+          <h3 className="cat-title">{data.title}</h3>
+          <p className="cat-sub">{type === 'service' ? 'Consulting, IT services & outsourcing giants' : 'Tech-first companies building their own products'}</p>
+        </div>
+        <div className="cat-stats">
+          <div className="cat-stat">
+            <span className="cat-stat-num" data-target={data.count}>0</span>
+            <span className="cat-stat-lbl">Companies</span>
+          </div>
+          <div className="cat-stat-div"/>
+          <div className="cat-stat">
+            <span className="cat-stat-num" data-target={data.count}>0</span>
+            <span className="cat-stat-lbl">PDFs</span>
+          </div>
+        </div>
+        <div>
+          <div className="cat-preview">
+            <div className="cat-preview-row">{data.previewRow1}</div>
+            <div className="cat-preview-row">{data.previewRow2}</div>
+          </div>
+          <p className="cat-preview-hint">👁 Click to view all companies</p>
         </div>
       </div>
-      <div>
-        <div className="cat-preview">
-          <div className="cat-preview-row">{data.previewRow1}</div>
-          <div className="cat-preview-row">{data.previewRow2}</div>
-        </div>
-        <p className="cat-preview-hint">👁 Click to view all companies</p>
-      </div>
-      <div>
-        <button className="cat-dl-btn" onClick={() => onOpen(type)}>
+
+      {/* Button lives OUTSIDE tilt-card so no 3D wrapper interferes */}
+      <div style={{ width: '100%' }}>
+        <button
+          type="button"
+          className="cat-dl-btn"
+          onPointerDown={(e) => {
+            e.stopPropagation();
+            console.log(`${type} button clicked`);
+            onOpen(type);
+          }}
+          onClick={(e) => {
+            e.stopPropagation();
+            onOpen(type);
+          }}
+          style={{
+            isolation: 'isolate',
+            touchAction: 'manipulation',
+            position: 'relative',
+            zIndex: 9999,
+            pointerEvents: 'all',
+          }}
+        >
           <span className="cat-dl-arrow">⬇</span>&ensp;Download PDFs
         </button>
         <div className="cat-reassure">
@@ -75,13 +99,22 @@ function CatBlock({ type, data, onOpen }) {
           <span>🔓 No sign-up</span>
         </div>
       </div>
-      </div>
     </div>
   );
 }
 
-export default function CompaniesSection({ onOpenModal }) {
+export default function CompaniesSection() {
   const hdrRef = useScrollReveal();
+  const [modalType, setModalType] = useState(null);
+
+  const openModal = (type) => {
+    console.log('openModal called with:', type);
+    setModalType(type);
+  };
+
+  const closeModal = () => {
+    setModalType(null);
+  };
 
   return (
     <section className="companies-section" id="companies">
@@ -93,10 +126,13 @@ export default function CompaniesSection({ onOpenModal }) {
           <p className="sec-sub">Real interview questions from actual hiring rounds. Pick your company type, download the pack and start preparing.</p>
         </div>
         <div className="cat-grid">
-          <CatBlock type="service" data={CAT_DATA.service} onOpen={onOpenModal} />
-          <CatBlock type="product" data={CAT_DATA.product} onOpen={onOpenModal} />
+          <CatBlock type="service" data={CAT_DATA.service} onOpen={openModal} />
+          <CatBlock type="product" data={CAT_DATA.product} onOpen={openModal} />
         </div>
       </div>
+      {modalType && (
+        <CompanyModal type={modalType} onClose={closeModal} />
+      )}
     </section>
   );
 }

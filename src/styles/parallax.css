@@ -29,7 +29,7 @@
 .parallax-orbs-container {
   position: absolute;
   inset: 0;
-  pointer-events: none;
+  pointer-events: none !important;
   overflow: hidden;
   z-index: 0;
 }
@@ -80,7 +80,7 @@
 .parallax-particles-container {
   position: absolute;
   inset: 0;
-  pointer-events: none;
+  pointer-events: none !important;
   overflow: hidden;
   z-index: 0;
 }

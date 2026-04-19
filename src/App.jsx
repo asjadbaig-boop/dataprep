@@ -7,7 +7,6 @@ import Hero from './components/Hero';
 import Mission from './components/Mission';
 import StatsStrip from './components/StatsStrip';
 import CompaniesSection from './components/CompaniesSection';
-import CompanyModal from './components/CompanyModal';
 import TechSection from './components/TechSection';
 import TechModal from './components/TechModal';
 import ResumeSection from './components/ResumeSection';
@@ -17,7 +16,6 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [companyModalType, setCompanyModalType] = useState(null);
   const [techModalKey, setTechModalKey] = useState(null);
 
   // Back-to-top button visibility
@@ -59,7 +57,7 @@ export default function App() {
       <Hero />
       <Mission />
       <StatsStrip />
-      <CompaniesSection onOpenModal={setCompanyModalType} />
+      <CompaniesSection />
       <TechSection onOpenModal={setTechModalKey} />
       <ResumeSection />
       <HowItWorks />
@@ -74,9 +72,6 @@ export default function App() {
         </svg>
       </button>
 
-      {companyModalType && (
-        <CompanyModal type={companyModalType} onClose={() => setCompanyModalType(null)} />
-      )}
       {techModalKey && (
         <TechModal techKey={techModalKey} onClose={() => setTechModalKey(null)} />
       )}

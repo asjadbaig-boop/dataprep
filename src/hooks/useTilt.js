@@ -9,6 +9,8 @@ export function useTilt(strength = 8) {
     const el = ref.current
     if (!el) return
 
+    el.style.pointerEvents = 'auto'
+
     const handleMove = (e) => {
       const rect = el.getBoundingClientRect()
       const x = (e.clientX - rect.left) / rect.width - 0.5
