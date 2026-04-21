@@ -1,5 +1,5 @@
 .tech-section {
-  background: var(--white);
+  background: var(--bg-primary);
   padding: var(--section-pad) clamp(16px, 5vw, 60px);
 }
 .tech-inner  { max-width: 1280px; margin: 0 auto; }
@@ -9,7 +9,7 @@
 .tech-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
 
 .tcard {
-  background: #fff;
+  background: var(--bg-card);
   border-radius: 10px;
   border: 1.5px solid var(--gray-300);
   padding: 24px;
@@ -67,7 +67,7 @@
 /* TECH MODAL */
 .tech-overlay {
   position: fixed; inset: 0;
-  background: rgba(10,15,30,0.65);
+  background: var(--overlay-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   z-index: 2100;
@@ -78,7 +78,7 @@
 }
 .tech-overlay.open { opacity: 1; pointer-events: all; }
 .tech-modal {
-  background: #fff; border-radius: 18px; padding: 32px;
+  background: var(--bg-card); border-radius: 18px; padding: 32px;
   max-width: 580px; width: 100%;
   box-shadow: 0 4px 6px rgba(0,0,0,.04), 0 24px 80px rgba(0,0,0,.24);
   transform: scale(.94) translateY(16px);

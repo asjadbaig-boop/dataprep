@@ -1,0 +1,437 @@
+/* ── DARK MODE BODY ──────────────────── */
+[data-theme="dark"] body {
+  background: var(--bg-primary);
+  color: var(--text-body);
+}
+
+/* ── DARK MODE HERO ──────────────────── */
+[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #0D1117 0%, #0D1B2A 60%, #0D1117 100%);
+}
+
+[data-theme="dark"] .hero::before {
+  background-image:
+    linear-gradient(rgba(88,166,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88,166,255,0.04) 1px, transparent 1px);
+}
+
+[data-theme="dark"] .hero-label {
+  background: rgba(88,166,255,0.1);
+  border-color: rgba(88,166,255,0.25);
+  color: var(--accent);
+}
+
+[data-theme="dark"] .hero-sub {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .mockup {
+  background: var(--bg-card);
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.2),
+    0 20px 60px rgba(88,166,255,0.1),
+    0 0 0 1px rgba(88,166,255,0.08);
+}
+
+[data-theme="dark"] .mockup-bar {
+  background: var(--bg-tertiary);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .url-bar {
+  background: var(--bg-input);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .m-card {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .m-name {
+  color: var(--text-body);
+}
+
+[data-theme="dark"] .m-badge {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+[data-theme="dark"] .azure-logo-card {
+  background: linear-gradient(135deg, rgba(88,166,255,0.08) 0%, rgba(88,166,255,0.04) 100%);
+  border-color: rgba(88,166,255,0.15);
+}
+
+[data-theme="dark"] .azure-logo-label-sub {
+  color: var(--text-primary);
+}
+
+/* ── DARK MODE SECTIONS ──────────────── */
+[data-theme="dark"] .how-section {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] .step-ttl {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .step-dsc {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .sec-label {
+  color: var(--accent);
+}
+
+[data-theme="dark"] .sec-label::before {
+  background: var(--accent);
+}
+
+[data-theme="dark"] .sec-title {
+  color: var(--text-primary);
+  -webkit-text-fill-color: var(--text-primary);
+}
+
+[data-theme="dark"] .sec-sub {
+  color: var(--text-muted);
+}
+
+/* ── DARK MODE MARQUEE ───────────────── */
+[data-theme="dark"] .marquee-sec {
+  background: var(--bg-secondary);
+  border-top-color: var(--border-color);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .mwrap::before {
+  background: linear-gradient(to right, var(--bg-secondary), transparent);
+}
+
+[data-theme="dark"] .mwrap::after {
+  background: linear-gradient(to left, var(--bg-secondary), transparent);
+}
+
+[data-theme="dark"] .mpill2 {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-body);
+}
+
+[data-theme="dark"] .mpill2:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── DARK MODE STATS STRIP ───────────── */
+[data-theme="dark"] .stats-strip {
+  background: linear-gradient(135deg, #0D2137, #0A1628);
+  border-top: 1px solid rgba(88,166,255,0.1);
+  border-bottom: 1px solid rgba(88,166,255,0.1);
+}
+
+/* ── DARK MODE COMPANIES SECTION ─────── */
+[data-theme="dark"] .companies-section {
+  background: var(--bg-secondary);
+  background-image:
+    linear-gradient(rgba(88,166,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88,166,255,0.04) 1px, transparent 1px);
+}
+
+[data-theme="dark"] .cat-block {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .cat-block:hover {
+  background: var(--bg-card);
+  border-color: rgba(88,166,255,0.35);
+  box-shadow: 0 20px 56px rgba(88,166,255,0.12);
+}
+
+[data-theme="dark"] .cat-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .cat-sub {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .cat-stats {
+  border-top-color: var(--border-color);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .cat-stat-div {
+  background: var(--border-color);
+}
+
+[data-theme="dark"] .cat-preview {
+  background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .cat-preview::after {
+  background: linear-gradient(to right, transparent 0%, transparent 30%, rgba(28,33,40,0.7) 70%, #1C2128 100%);
+}
+
+[data-theme="dark"] .cat-preview::before {
+  background: linear-gradient(to bottom, transparent 0%, rgba(28,33,40,0.6) 70%, #1C2128 100%);
+}
+
+/* ── DARK MODE COMPANY MODAL ─────────── */
+[data-theme="dark"] .modal-overlay {
+  background: var(--overlay-bg);
+}
+
+[data-theme="dark"] .modal-card {
+  background: var(--modal-bg);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .modal-hdr {
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .modal-hdr-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .modal-subhdr {
+  background: var(--bg-secondary);
+  border-bottom-color: var(--border-light);
+}
+
+[data-theme="dark"] .modal-subhdr-dot {
+  color: var(--text-faint);
+}
+
+[data-theme="dark"] .modal-footer {
+  background: var(--modal-bg);
+  border-top-color: var(--border-color);
+}
+
+[data-theme="dark"] .modal-chips-label {
+  color: var(--text-faint);
+}
+
+[data-theme="dark"] .modal-chips-label::after {
+  background: var(--border-color);
+}
+
+[data-theme="dark"] .mchip {
+  background: var(--bg-tertiary);
+  border-color: var(--border-color);
+  color: var(--text-body);
+}
+
+[data-theme="dark"] .mchip:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+[data-theme="dark"] .modal-close {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+}
+
+/* ── DARK MODE TECH SECTION ──────────── */
+[data-theme="dark"] .tech-section {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] .tcard {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .tcard:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-blue);
+}
+
+/* ── DARK MODE TECH MODAL ────────────── */
+[data-theme="dark"] .tech-overlay {
+  background: var(--overlay-bg);
+}
+
+[data-theme="dark"] .tech-modal {
+  background: var(--bg-card);
+  border-top-color: var(--accent);
+}
+
+[data-theme="dark"] .tmod-name {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .tmod-desc {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .tmod-hr {
+  background: var(--border-color);
+}
+
+[data-theme="dark"] .tmod-res-label {
+  color: var(--text-faint);
+}
+
+[data-theme="dark"] .tpdf-row {
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .tpdf-row:hover {
+  background: var(--bg-blue-tint);
+  border-color: rgba(88,166,255,0.3);
+}
+
+[data-theme="dark"] .tpdf-name {
+  color: var(--text-body);
+}
+
+[data-theme="dark"] .tmod-note {
+  border-top-color: var(--border-color);
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .tmod-x {
+  background: var(--bg-tertiary);
+  color: var(--text-muted);
+}
+
+/* ── DARK MODE RESUME SECTION ────────── */
+[data-theme="dark"] .resume-section {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] .resume-section::before {
+  background-image:
+    linear-gradient(rgba(88,166,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88,166,255,0.03) 1px, transparent 1px);
+}
+
+[data-theme="dark"] .resume-card {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .resume-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-blue);
+}
+
+[data-theme="dark"] .resume-card-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .resume-card-subtitle {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .resume-card-badge {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .resume-level-pill {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .resume-stats-row {
+  border-top-color: var(--border-color);
+  border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .resume-stat-divider {
+  background: var(--border-color);
+}
+
+[data-theme="dark"] .resume-feature-item {
+  color: var(--text-muted);
+}
+
+[data-theme="dark"] .resume-card-divider {
+  background: var(--border-color);
+}
+
+[data-theme="dark"] .resume-bottom-note {
+  color: var(--text-faint);
+}
+
+/* ── DARK MODE FOOTER ────────────────── */
+[data-theme="dark"] .footer {
+  background: #080C12;
+  border-top-color: rgba(255,255,255,0.05);
+}
+
+/* ── DARK MODE GRID LINES ────────────── */
+[data-theme="dark"] .parallax-grid {
+  background-image:
+    linear-gradient(rgba(88,166,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(88,166,255,0.04) 1px, transparent 1px);
+}
+
+/* ── DARK MODE SCROLLBAR ─────────────── */
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #30363D;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* ── DARK MODE MOBILE MENU ───────────── */
+[data-theme="dark"] .mobile-menu-overlay {
+  background: rgba(13, 17, 23, 0.98);
+}
+
+[data-theme="dark"] .mobile-menu-close {
+  background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .mobile-menu-link {
+  color: var(--text-primary);
+  border-bottom-color: var(--border-light);
+}
+
+[data-theme="dark"] .mobile-menu-logo .navbar-logo-text {
+  color: var(--text-primary) !important;
+}
+
+/* ── DARK MODE INPUTS ────────────────── */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: var(--bg-input);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] input::placeholder,
+[data-theme="dark"] textarea::placeholder {
+  color: var(--text-faint);
+}
+
+/* ── SMOOTH THEME TRANSITION ─────────── */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.2s ease,
+    box-shadow 0.35s ease;
+}
+
+button,
+a,
+[class*="btn"] {
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}

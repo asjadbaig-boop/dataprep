@@ -2,11 +2,14 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
 import { Menu, X } from "lucide-react"
 import { smoothScrollTo } from "../utils/smoothScroll"
+import ThemeToggle from "./ThemeToggle"
+import { useTheme } from "../context/ThemeContext"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("")
+  const { isDark } = useTheme()
 
   const toggleMenu = () => setIsOpen(!isOpen)
 
@@ -59,10 +62,12 @@ const Navbar = () => {
     setIsOpen(false)
   }
 
+  const iconColor = isDark ? "#F0F4FF" : "#1A1A2E"
+
   return (
     <div className="navbar-wrapper">
       <motion.div
-        className={`navbar-pill ${scrolled ? "scrolled" : ""}`}
+        className={`navbar-pill ${scrolled ? "scrolled" : ""} ${isDark ? "navbar-dark" : ""}`}
         initial={{ y: -100, opacity: 0, scale: 0.9 }}
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{
@@ -122,6 +127,9 @@ const Navbar = () => {
           ))}
         </nav>
 
+        {/* THEME TOGGLE */}
+        <ThemeToggle />
+
         {/* DESKTOP CTA */}
         <motion.a
           href="https://www.linkedin.com/in/asjad-baig/"
@@ -148,8 +156,8 @@ const Navbar = () => {
           aria-expanded={isOpen}
         >
           {isOpen
-            ? <X size={22} color="#1A1A2E" />
-            : <Menu size={22} color="#1A1A2E" />
+            ? <X size={22} color={iconColor} />
+            : <Menu size={22} color={iconColor} />
           }
         </motion.button>
       </motion.div>
@@ -179,7 +187,7 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
-              <X size={24} color="#1A1A2E" />
+              <X size={24} color={iconColor} />
             </motion.button>
 
             {/* Mobile logo */}
@@ -195,7 +203,7 @@ const Navbar = () => {
                   <path d="M71.17 60.681H38.33l-11.666 32.187A4.167 4.167 0 0 0 30.609 98h56.04a4.167 4.167 0 0 0 3.942-5.533L71.17 60.681z" fill="white"/>
                 </svg>
               </div>
-              <span className="navbar-logo-text" style={{ color: "#1A1A2E" }}>DataPrep</span>
+              <span className="navbar-logo-text" style={{ color: iconColor }}>DataPrep</span>
             </motion.div>
 
             {/* Mobile nav links */}
@@ -216,6 +224,24 @@ const Navbar = () => {
                   <span className="mobile-link-arrow">→</span>
                 </motion.button>
               ))}
+            </div>
+
+            {/* Theme toggle in mobile nav */}
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              padding: '16px 4px',
+              borderBottom: '1px solid var(--border-light)'
+            }}>
+              <span style={{
+                fontSize: '0.95rem',
+                fontWeight: 500,
+                color: 'var(--text-body)'
+              }}>
+                {isDark ? '🌙 Dark Mode' : '☀️ Light Mode'}
+              </span>
+              <ThemeToggle />
             </div>
 
             {/* Mobile CTA */}

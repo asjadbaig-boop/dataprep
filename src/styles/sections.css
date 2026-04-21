@@ -137,7 +137,7 @@
 .mtrack:hover { animation-play-state: paused; }
 @keyframes mscroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 .mpill2 {
-  padding: 9px 22px; background: #fff;
+  padding: 9px 22px; background: var(--bg-card);
   border: 1.5px solid var(--gray-300); border-radius: 999px;
   font-size: .87rem; font-weight: 500; color: var(--text-body);
   white-space: nowrap; box-shadow: var(--shadow-sm);

@@ -100,14 +100,7 @@ html {
 body {
   font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
   color: var(--text-body);
-  background: linear-gradient(
-    180deg,
-    #F0F6FF 0%,
-    #FFFFFF 20%,
-    #FFFFFF 60%,
-    #F5F9FF 100%
-  );
-  background-attachment: fixed;
+  background: var(--bg-primary);
   line-height: 1.65;
   overflow-x: hidden;
   opacity: 0;

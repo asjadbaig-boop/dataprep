@@ -18,15 +18,15 @@
   justify-content: space-between;
   gap: 16px;
   padding: 10px 10px 10px 16px;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--nav-bg);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-radius: 999px;
   width: 100%;
-  max-width: 820px;
+  max-width: 860px;
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.06),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
+    0 0 0 1px var(--nav-border);
   pointer-events: all;
   transition:
     box-shadow 0.35s ease,
@@ -36,13 +36,47 @@
 }
 
 .navbar-pill.scrolled {
-  background: rgba(255, 255, 255, 0.97);
+  background: var(--nav-bg);
   box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.10),
-    0 0 0 1px rgba(0, 0, 0, 0.06);
+    0 0 0 1px var(--nav-border);
   padding: 8px 8px 8px 14px;
-  max-width: 780px;
+  max-width: 820px;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── DARK NAVBAR OVERRIDES ───────────── */
+.navbar-dark.navbar-pill {
+  background: rgba(13, 17, 30, 0.92);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.navbar-dark.navbar-pill.scrolled {
+  background: rgba(13, 17, 30, 0.97);
+  box-shadow:
+    0 4px 24px rgba(0,0,0,0.4),
+    0 0 0 1px rgba(255,255,255,0.06);
+}
+
+.navbar-dark .navbar-logo-text {
+  color: #F0F4FF;
+}
+
+.navbar-dark .navbar-link {
+  color: rgba(255,255,255,0.6);
+}
+
+.navbar-dark .navbar-link:hover {
+  color: #60B8FF;
+  background: rgba(96,184,255,0.08);
+}
+
+.navbar-dark .navbar-link-active {
+  color: #58A6FF;
+  background: rgba(88,166,255,0.1);
 }
 
 /* ── LOGO ────────────────────────────── */
@@ -78,8 +112,9 @@
 .navbar-logo-text {
   font-weight: 800;
   font-size: 1rem;
-  color: #1A1A2E;
+  color: var(--text-primary);
   letter-spacing: -0.02em;
+  transition: color 0.2s ease;
 }
 
 /* ── DESKTOP LINKS ───────────────────── */
@@ -94,7 +129,7 @@
   border: none;
   font-size: 0.88rem;
   font-weight: 500;
-  color: #605E5C;
+  color: var(--text-muted);
   cursor: pointer;
   padding: 7px 12px;
   border-radius: 8px;
@@ -120,8 +155,8 @@
 }
 
 .navbar-link:hover {
-  color: #0078D4;
-  background: rgba(0,120,212,0.07);
+  color: var(--accent);
+  background: var(--accent-light);
 }
 
 .navbar-link:hover::after {
@@ -130,8 +165,8 @@
 
 /* Active section highlight */
 .navbar-link-active {
-  color: #0078D4;
-  background: rgba(0,120,212,0.08);
+  color: var(--accent);
+  background: var(--accent-light);
   font-weight: 600;
 }
 
@@ -141,7 +176,7 @@
 
 /* ── CTA BUTTON ──────────────────────── */
 .navbar-cta-btn {
-  background: #0078D4;
+  background: var(--accent);
   color: white;
   border: none;
   border-radius: 999px;
@@ -180,7 +215,7 @@
 }
 
 .navbar-cta-btn:hover {
-  background: #106EBE;
+  background: var(--accent-dark);
   box-shadow: 0 8px 28px rgba(0,120,212,0.45);
 }
 
@@ -231,6 +266,7 @@
   flex-direction: column;
   padding: 32px 28px 40px;
   pointer-events: all;
+  transition: background 0.35s ease;
 }
 
 .mobile-menu-close {
@@ -247,6 +283,7 @@
   justify-content: center;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease;
 }
 
 .mobile-menu-logo {
@@ -274,11 +311,12 @@
   padding: 18px 4px;
   font-size: 1.15rem;
   font-weight: 600;
-  color: #1A1A2E;
+  color: var(--text-primary);
   cursor: pointer;
   text-align: left;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 /* Arrow animation on mobile link hover */
@@ -302,7 +340,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #0078D4;
+  background: var(--accent);
   color: white;
   text-decoration: none;
   border-radius: 12px;
@@ -312,12 +350,13 @@
   margin-top: 20px;
   box-shadow: 0 8px 24px rgba(0,120,212,0.3);
   -webkit-tap-highlight-color: transparent;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .mobile-menu-tagline {
   text-align: center;
   font-size: 0.75rem;
-  color: #A0A8B4;
+  color: var(--text-faint);
   margin-top: 16px;
   letter-spacing: 0.04em;
 }

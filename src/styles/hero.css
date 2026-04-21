@@ -59,7 +59,7 @@
 }
 .azure-logo-label-sub {
   font-size: .85rem; font-weight: 600;
-  color: #1A1A2E; line-height: 1.2;
+  color: var(--text-primary); line-height: 1.2;
 }
 .hero::before {
   content: '';
@@ -109,7 +109,7 @@
 }
 .hero-sub {
   font-size: clamp(1rem, 1.8vw, 1.15rem);
-  color: #605E5C; line-height: 1.75;
+  color: var(--text-muted); line-height: 1.75;
   max-width: 520px; margin-bottom: 36px;
   overflow: visible;
 }
@@ -118,7 +118,7 @@
 .hero-visual { display: flex; justify-content: center; position: relative; }
 .mockup {
   width: 100%; max-width: 420px;
-  background: #fff; border-radius: 18px;
+  background: var(--bg-card); border-radius: 18px;
   box-shadow:
     0 4px 6px rgba(0,0,0,0.04),
     0 20px 60px rgba(0,120,212,0.2),
@@ -131,31 +131,31 @@
   to   { transform: translateY(-6px) rotate(0.3deg); }
 }
 .mockup-bar {
-  background: #f2f2f2; padding: 10px 14px;
+  background: var(--bg-tertiary); padding: 10px 14px;
   display: flex; align-items: center; gap: 6px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--border-color);
 }
 .dot { width: 10px; height: 10px; border-radius: 50%; }
 .dot.r { background: #FF5F57; }
 .dot.y { background: #FFBD2E; }
 .dot.g { background: #28C840; }
 .url-bar {
-  flex: 1; margin-left: 8px; background: #fff;
-  border: 1px solid #e0e0e0; border-radius: 4px;
+  flex: 1; margin-left: 8px; background: var(--bg-input);
+  border: 1px solid var(--border-color); border-radius: 4px;
   padding: 3px 10px; font-size: .7rem; color: var(--text-muted);
 }
 .mockup-body { padding: 16px; }
 .mockup-label { font-size: .78rem; font-weight: 700; color: var(--accent-blue-deep); margin-bottom: 12px; }
 .mockup-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
 .m-card {
-  background: #f5f5f5; border-radius: 8px; padding: 10px 6px;
-  text-align: center; border: 1px solid #e8e8e8;
+  background: var(--bg-tertiary); border-radius: 8px; padding: 10px 6px;
+  text-align: center; border: 1px solid var(--border-color);
   transition: transform .2s var(--ease-spring), box-shadow .2s;
 }
 .m-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,.1); }
 .m-av { width: 30px; height: 30px; border-radius: 6px; margin: 0 auto 5px; display: flex; align-items: center; justify-content: center; font-size: .62rem; font-weight: 700; color: #fff; }
-.m-name { font-size: .58rem; font-weight: 600; color: #333; }
-.m-badge { font-size: .48rem; background: #EFF6FC; color: #0078D4; border-radius: 99px; padding: 1px 5px; margin-top: 3px; display: inline-block; }
+.m-name { font-size: .58rem; font-weight: 600; color: var(--text-body); }
+.m-badge { font-size: .48rem; background: var(--accent-light); color: var(--accent); border-radius: 99px; padding: 1px 5px; margin-top: 3px; display: inline-block; }
 
 @media (max-width: 768px) {
   .hero {
