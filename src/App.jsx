@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Cursor from './components/Cursor';
 import { ScrollProgressBar } from './components/ParallaxEffects';
 import './styles/parallax.css';
@@ -75,6 +76,8 @@ export default function App() {
       {techModalKey && (
         <TechModal techKey={techModalKey} onClose={() => setTechModalKey(null)} />
       )}
+      
+      <Analytics />
     </>
   );
 }
